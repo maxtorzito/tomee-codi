@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <h2>
+            LOGIN PAGE
+        </h2>
+        How to use:
+        <br/>
+        Configuration 1 (default):
+        <ul>
+            <li>context.xml: path="/"</li>
+            <li>CODI dependencies in webapp</li>
+        </ul>
+        Steps:
+        <ol>
+            <li>Open your browser and type: localhost:8080</li>
+            <li>Try to access to private/welcome.xhtml you can use the link above</li>
+            <li>You will redirect to http://index.xhtml/?windowId=XXX</li>
+            <li>This is not the expected behavior, i will expect to redirec to http://localhost:8080/</li>
+            <li>If you login you can access to the private area</li>
+        </ol>
+        Resume: FAIL
+        <hr/>
+
+        Configuration 2:
+        <ul>
+            <li>context.xml: Change path to test (path="/test")</li>
+            <li>CODI dependencies in webapp</li>
+        </ul>
+        Steps:        
+        <ol>
+            <li>Open your browser and type: localhost:8080/test</li>
+            <li>Try to access to private/welcome.xhtml you can use the link above</li>
+            <li>You will redirect to http://localhost:8080/test/index.xhtml?windowId=52b</li>
+            <li>This IS THE the expected behavior, because is redirecting to the "login page"</li>
+            <li>I required to use the path="/" because i use the Host tag in server.xml</li>
+            <li>If you login you can access to the private area</li>
+        </ol>
+        Resume: WORKS, BUT I NEED TO USE THE "/" PATH IN CONTEXT. THIS IS A PARTIAL SOLUTION
+        <br/>
+        <hr/>
+        <h:form>
+            <div style="background-color: yellow;">
+                <h:messages id="messages"/>
+                LINK >>>>>  <a href="/private/welcome.xhtml">CLICK HERE AND TRY TO GO TO PRIVATE CONTENT WITHOUT LOGIN</a>
+                <br/>
+                CLICK BUTTON TO LOGIN AND GO TO PRIVATE CONTENT
+                <h:commandButton value="Login" action="#{myMBean.login}"/>
+                <h:commandButton value="Logout" action="#{myMBean.logout}"/>
+            </div>
+
+        </h:form>        
+    </h:body>
+</html>

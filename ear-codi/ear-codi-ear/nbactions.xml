@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>CUSTOM-tomee run</actionName>
+        <displayName>tomee run</displayName>
+        <goals>
+            <goal>tomee:run</goal>
+        </goals>
+    </action>    
+    <action>
+        <actionName>CUSTOM-tomee debug</actionName>
+        <displayName>tomee debug</displayName>
+        <goals>
+            <goal>tomee:debug</goal>
+        </goals>
+    </action>
+</actions>
